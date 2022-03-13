@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import AddCompany from "./AddCompany";
 import Modal from "./Modal";
 
 function Companies() {
