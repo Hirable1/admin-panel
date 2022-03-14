@@ -14,7 +14,7 @@ function Modal({ modalOpen, companyList, setCompanyList, setModalOpen }) {
             linkedIn,
             companyLogo,
         };
-        setCompanyList(companyList=>[...companyList, company]);
+        setCompanyList((companyList) => [...companyList, company]);
         // console.log(companyList);
         setCompanyName("");
         setLinkedIn("");
@@ -41,7 +41,7 @@ function Modal({ modalOpen, companyList, setCompanyList, setModalOpen }) {
                 !modalOpen ? "hidden" : "fixed"
             } top-0 left-0 z-50 overflow-auto bg-smoke-light flex w-[100vw] h-[100vh]`}
         >
-            <div className="relative bg-white w-[80%] h-[90%]  m-auto flex rounded-lg flex-col">
+            <div className="relative bg-white m-auto flex rounded-lg flex-col">
                 <div className="bg-[#eff2f6] flex justify-between p-6 rounded-t-lg">
                     <p className="text-[0.875rem] leading-5 font-semibold m-0">
                         Add Company
@@ -52,16 +52,6 @@ function Modal({ modalOpen, companyList, setCompanyList, setModalOpen }) {
                     />
                 </div>
                 <form className="p-6" onSubmit={handleSubmit}>
-                    <div className="mb-20">
-                        <p className="my-2">Company Name</p>
-                        <input
-                            type="text"
-                            placeholder="Enter Company Name"
-                            value={companyName}
-                            onChange={(e) => setCompanyName(e.target.value)}
-                            className="px-3 py-2 placeholder-[#6B7280] text-[#030303] placeholder-opacity-90 relative bg-white rounded text-sm border-[1.5px] focus:outline-none focus:border-[#2dc5a1] focus:border-2  w-full transition duration-200 ease-in"
-                        />
-                    </div>
                     <div className="flex w-full items-center">
                         <div className="mr-16">
                             <p className="text-[12px] font-semibold p-1 mt-1">
@@ -85,17 +75,33 @@ function Modal({ modalOpen, companyList, setCompanyList, setModalOpen }) {
                                 )}
                             </div>
                         </div>
-                        <div className="flex w-full h-1/4">
-                            <span className="text-[12px] bg-gray-200 rounded-tl-[3.5px] rounded-bl-[3.5px] flex items-center justify-center px-2 text-gray-500 border">
-                                https://
-                            </span>
-                            <input
-                                type="text"
-                                value={linkedIn}
-                                onChange={(e) => setLinkedIn(e.target.value)}
-                                placeholder="www.linkedin.com/your-profile"
-                                className="px-3 py-2 placeholder-[#6B7280] text-[#030303]  placeholder-opacity-90 relative bg-white text-sm border rounded-tr-[3.5px] rounded-br-[3.5px]  focus:outline-none focus:border-[#2dc5a1] focus:border-2  w-full  transition duration-200 ease-in"
-                            />
+                        <div className="flex flex-col space-y-2">
+                            <div className="w-full">
+                                <p className="my-2">Company Name</p>
+                                <input
+                                    type="text"
+                                    placeholder="Enter Company Name"
+                                    value={companyName}
+                                    onChange={(e) =>
+                                        setCompanyName(e.target.value)
+                                    }
+                                    className="px-3 py-2 placeholder-[#6B7280] text-[#030303] placeholder-opacity-90 relative bg-white rounded text-sm border-[1.5px] focus:outline-none focus:border-[#2dc5a1] focus:border-2  w-full transition duration-200 ease-in"
+                                />
+                            </div>
+                            <div className="flex w-full h-1/4">
+                                <span className="text-[12px] bg-gray-200 rounded-tl-[3.5px] rounded-bl-[3.5px] flex items-center justify-center px-2 text-gray-500 border">
+                                    https://
+                                </span>
+                                <input
+                                    type="text"
+                                    value={linkedIn}
+                                    onChange={(e) =>
+                                        setLinkedIn(e.target.value)
+                                    }
+                                    placeholder="www.linkedin.com/your-profile"
+                                    className="px-3 py-2 placeholder-[#6B7280] text-[#030303]  placeholder-opacity-90 relative bg-white text-sm border rounded-tr-[3.5px] rounded-br-[3.5px]  focus:outline-none focus:border-[#2dc5a1] focus:border-2  w-full  transition duration-200 ease-in"
+                                />
+                            </div>
                         </div>
                     </div>
                     <input
