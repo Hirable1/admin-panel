@@ -1,5 +1,6 @@
 import { GrClose } from "react-icons/gr";
 import { useRef, useState } from "react";
+import {AiOutlinePlus} from "react-icons/ai"
 function Modal({ modalOpen, companyList, setCompanyList, setModalOpen }) {
     const fileRef = useRef(null);
 
@@ -15,7 +16,6 @@ function Modal({ modalOpen, companyList, setCompanyList, setModalOpen }) {
             companyLogo,
         };
         setCompanyList((companyList) => [...companyList, company]);
-        // console.log(companyList);
         setCompanyName("");
         setLinkedIn("");
         setCompanyLogo(null);
@@ -53,7 +53,7 @@ function Modal({ modalOpen, companyList, setCompanyList, setModalOpen }) {
                 </div>
                 <form className="p-6" onSubmit={handleSubmit}>
                     <div className="flex w-full items-center">
-                        <div className="mr-16">
+                        <div className="mr-8">
                             <p className="text-[12px] font-semibold p-1 mt-1">
                                 Company Logo
                             </p>
@@ -70,14 +70,14 @@ function Modal({ modalOpen, companyList, setCompanyList, setModalOpen }) {
                                     />
                                 ) : (
                                     <span className="text-[2.5rem] text-gray-500">
-                                        +
+                                        <AiOutlinePlus/>
                                     </span>
                                 )}
                             </div>
                         </div>
-                        <div className="flex flex-col space-y-2">
+                        <div className="flex flex-col space-y-6">
                             <div className="w-full">
-                                <p className="my-2">Company Name</p>
+                                <p className="text-[12px] font-semibold p-1 mt-1">Company Name</p>
                                 <input
                                     type="text"
                                     placeholder="Enter Company Name"
@@ -99,7 +99,7 @@ function Modal({ modalOpen, companyList, setCompanyList, setModalOpen }) {
                                         setLinkedIn(e.target.value)
                                     }
                                     placeholder="www.linkedin.com/your-profile"
-                                    className="px-3 py-2 placeholder-[#6B7280] text-[#030303]  placeholder-opacity-90 relative bg-white text-sm border rounded-tr-[3.5px] rounded-br-[3.5px]  focus:outline-none focus:border-[#2dc5a1] focus:border-2  w-full  transition duration-200 ease-in"
+                                    className="px-1 py-2 placeholder-[#6B7280] text-[#030303]  placeholder-opacity-90 relative bg-white text-sm border rounded-tr-[3.5px] rounded-br-[3.5px]  focus:outline-none focus:border-[#2dc5a1] focus:border-2  w-full  transition duration-200 ease-in"
                                 />
                             </div>
                         </div>
