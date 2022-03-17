@@ -6,11 +6,19 @@
     .sidebar-option {
         @apply relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6 cursor-pointer;
     }
-    /* .main {
-        @apply w-[100vw] h-[100vh] overflow-hidden flex bg-gray-100
-    } */
+    .main {
+        @apply bg-gray-100 calc-width max-h-screen float-right font-inter;
+    }
 
     .calc-width {
-        @apply w-[calc(100%-16rem)]
+        @apply w-[calc(100%-16rem)];
+    }
+
+    .save-button {
+        @apply outline-none w-28 py-[0.625rem] px-[0.75rem] rounded-[0.3125rem]  font-semibold text-[0.875rem] h-[2.5rem] cursor-pointer text-white bg-[#1a73e8] mb-[20px]  border-none mt-[10px] flex items-center justify-center;
+    }
+
+    .current-section-option {
+        @apply cursor-pointer px-10
     }
 }
