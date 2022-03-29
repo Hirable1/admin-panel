@@ -6,9 +6,35 @@ function Profile() {
     const [openings, setOpenings] = useState();
     const [assignments, setAssignments] = useState();
     const [location, setLocation] = useState();
+    const [places,setPlaces] = useState(['Vatican City', 'Detroit']); //Location of company
     const [tags, setTags] = useState();
+    const [listTags, setListTags] = useState(['EdTech']); //to split the set of tags and store them separately
     const [teamSize, setTeamSize] = useState();
     const [aboutCompany, setAboutCompany] = useState();
+    // To store unique location and tags
+    const [unique_places,setUniquePlaces] = useState(['Vatican City', 'Detroit']);
+    const [unique_tags,setUniqueTags] = useState(['EdTech']);
+    let GLOBAL_ID = 0;  // A global id increments at every operation serving as the unique key to any rendering element
+
+
+    const loc_listener = (event) => {
+        if (event.code === "Enter" || event.code === "NumpadEnter") {
+            if(location.trim !="" /*&& location !=" "*/)
+                setPlaces( (prevState) =>  [...prevState,location])
+                setUniquePlaces(Array.from(new Set(places)))  //  filters the duplicate places
+                console.log(unique_places);
+                // event.preventDefault();
+            }
+    }
+    const tags_listener = (event) => {
+        if(event.code === "Enter" || event.code === "NumpadEnter"){
+            let list_tag = tags.split(',')              //seperates the various Tags with split function
+            console.log(list_tag);
+            list_tag.forEach((element) => {setListTags( (prevState) =>  [...prevState, element])}) //adding each unique element to the List of unique tags to be rendered
+            setUniqueTags(Array.from(new Set(listTags)))  //filters the duplicate tags
+            console.log(unique_tags);
+        }
+    }
 
     return (
         <div className="flex flex-col space-y-6 flex-1 py-10">
@@ -85,10 +111,14 @@ function Profile() {
                 <input
                     type="text"
                     value={location}
-                    onChange={(e) => setLocation(e.target.value)}
+                    onChange={(e)=> setLocation(e.target.value)} //Need to be mended
+                    onKeyDown= {(e) => loc_listener(e)}  //Listens the Enter Press
                     placeholder="Example: Singapore, Mumbai, New York..."
                     className="appearance-none px-3 py-2 placeholder-[#6B7280] text-[#030303]  placeholder-opacity-90 relative w-full bg-white rounded text-sm border-[1.5px]  focus:outline-none focus:border-[#2dc5a1] focus:border-2 transition duration-200  ease-in mt-1 bg-transparent"
                 />
+                <div >
+                    {unique_places.map((place) => { return (<button key={++GLOBAL_ID} className="bg-gray-500 focus:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={(e)=> setLocation(e.target.value)}>{place} </button>)})}
+                </div>
             </div>
 
             <div className="px-10 w-full space-y-2">
@@ -97,9 +127,13 @@ function Profile() {
                     type="text"
                     value={tags}
                     onChange={(e) => setTags(e.target.value)}
+                    onKeyDown= {(e) => tags_listener(e)} //executes on pressing enter
                     placeholder="Example: Artifical Intelligence, Machine Learning, Saas..."
                     className="appearance-none px-3 py-2 placeholder-[#6B7280] text-[#030303]  placeholder-opacity-90 relative w-full bg-white rounded text-sm border-[1.5px]  focus:outline-none focus:border-[#2dc5a1] focus:border-2 transition duration-200  ease-in mt-1 bg-transparent"
                 />
+                <div>
+                    {unique_tags.map((tag) => { return (<button key={++GLOBAL_ID} className="bg-gray-500 focus:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={(e)=> setLocation(e.target.value)}>{tag} </button>)})}
+                </div>
             </div>
 
             <div className="px-10 w-full space-y-2">
