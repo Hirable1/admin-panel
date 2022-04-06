@@ -22,3 +22,6 @@
         @apply cursor-pointer px-10
     }
 }
+.preferred_roles {
+    @apply text-[#788699] border-[1px] border-[#d6dae0] rounded-3xl my-[0.35rem] mx-[0.25rem] py-[0.7rem] px-[0.875rem] leading-[1.25rem] text-[0.875rem] text-center font-normal inline-flex cursor-pointer;
+  }
