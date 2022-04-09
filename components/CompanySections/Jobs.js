@@ -42,7 +42,7 @@ function Jobs() {
     <div className='w-[80%] flex flex-row-rev flex-wrap '>      
         {jobs.map((job , index) => {
           return (
-            <div className='cursor-pointer m-[15px]' onClick={() => handleJobClick(job , index)}>
+            <div key={index} className='cursor-pointer m-[15px]' onClick={() => handleJobClick(job , index)}>
             <h1>{job.title}</h1>
             </div>
           )
