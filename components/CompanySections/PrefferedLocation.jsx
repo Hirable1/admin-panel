@@ -137,7 +137,7 @@ function PrefferedLocation({  }) {
                         {autocomplete.data.map((item, index) => (
                           <div
                             key={index}
-                            className="px-3 mt-1 h-10 flex items-center cursor-pointer 
+                            className="px-3 h-[2rem] flex items-center cursor-pointer 
                             font-medium text-sm hover:bg-gray-100"
                             onClick={() => updatePreferredLocation(item)}
                           >

@@ -3,23 +3,14 @@
 /* eslint-disable react/no-array-index-key */
 import React, { useState, useEffect } from 'react';
 
-function Tags() {
+function TeamSize() {
     const [preferredSkills, setPreferredSkills] = useState([
-        { name: 'Machine Learning', selected: false },
-        { name: 'Artificial Intelligence', selected: false },
-        { name: 'Angular JS', selected: false },
-        { name: 'Apache Spark', selected: false },
-        { name: 'C', selected: false },
-        { name: 'C++', selected: false },
-        { name: 'Kotlin', selected: false },
-        { name: 'Java', selected: false },
-        { name: 'Python', selected: false },
-        { name: 'Node js', selected: false },
-        { name: 'React js', selected: false },
-        { name: 'Linux', selected: false },
-        { name: 'Github', selected: false },
-        { name: 'SQL', selected: false },
-        { name: 'MongoDB', selected: false },
+        { name: '5-10', selected: false },
+        { name: '10-50', selected: false },
+        { name: '50-100', selected: false },
+        { name: '>500', selected: false },
+        { name: '>1000', selected: false },
+        
       ]);
       const [userPreferredSkills, setUserPrefferedSkills] = useState([]);
       const [totalPreferredSkills, setTotalPreferredSkills] = useState(0);
@@ -146,7 +137,7 @@ function Tags() {
                       type="text"
                       value={inputValue}
                       onChange={handleInputValueChange}
-                      placeholder="Example: Artificial Intelligence , Machine Learning ... "
+                      placeholder="Example:5-10 , 10-50 "
                     />
                     <div
                       className={`${
@@ -157,7 +148,7 @@ function Tags() {
                       {autocomplete.data.map((item, index) => (
                         <div
                           key={index}
-                          className="px-3  h-[2rem] flex items-center cursor-pointer 
+                          className="px-3 mt-1 h-10 flex items-center cursor-pointer 
                           font-medium text-sm hover:bg-gray-100"
                           onClick={() => updatePreferredSkills(item)}
                         >
@@ -193,4 +184,4 @@ function Tags() {
   );
 }
 
-export default Tags;
+export default TeamSize;

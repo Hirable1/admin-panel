@@ -1,6 +1,8 @@
 import { useRef, useState } from "react";
+import RichEditor from '../General/Editor'
 import PrefferedLocation from "./PrefferedLocation";
 import Tags from "./Tags";
+import TeamSize from "./TeamSize";
 function Profile() {
     const [facebook, setFacebook] = useState("");
     const [website, setWebsite] = useState("");
@@ -10,8 +12,10 @@ function Profile() {
     const [location, setLocation] = useState();
     const [tags, setTags] = useState();
     const [teamSize, setTeamSize] = useState();
-    const [aboutCompany, setAboutCompany] = useState();
-
+    const [aboutCompany, setAboutCompany] = useState("");
+    const handleEditorChange = (htmlContent) => {
+        setAboutCompany(htmlContent);
+      };
     return (
         <div className="flex flex-col space-y-6 flex-1 py-10">
             <div className="space-y-4 px-10">
@@ -110,25 +114,31 @@ function Profile() {
                 <p className="text-[12px] font-semibold text-[#201e27]">
                     Team Size
                 </p>
-                <input
+                {/* <input
                     type="text"
                     value={teamSize}
                     onChange={(e) => setTeamSize(e.target.value)}
                     placeholder="Example: Artifical Intelligence, Machine Learning, Saas..."
                     className="appearance-none px-3 py-2 placeholder-[#6B7280] text-[#030303]  placeholder-opacity-90 relative w-full bg-white rounded text-sm border-[1.5px]  focus:outline-none focus:border-[#2dc5a1] focus:border-2 transition duration-200  ease-in mt-1 bg-transparent"
-                />
+                /> */}
+                <TeamSize/>
             </div>
 
             <div className="px-10 w-full space-y-2">
                 <p className="text-[12px] font-semibold text-[#201e27]">
                     About Company
                 </p>
-                <textarea
+                {/* <textarea
                     type="text"
                     value={aboutCompany}
                     onChange={(e) => setAboutCompany(e.target.value)}
                     placeholder="Give a brief description"
                     className="appearance-none px-3 py-2 placeholder-[#6B7280] text-[#030303]  placeholder-opacity-90 relative w-full bg-white rounded text-sm border-[1.5px]  focus:outline-none focus:border-[#2dc5a1] focus:border-2 transition duration-200  ease-in mt-1 bg-transparent h-52"
+                /> */}
+                <RichEditor
+                    htmlContent={aboutCompany}
+                    // setAboutCompany ={setAboutCompany}
+                    handleEditorChange={handleEditorChange}
                 />
             </div>
 
