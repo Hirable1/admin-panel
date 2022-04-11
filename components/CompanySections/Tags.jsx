@@ -134,63 +134,56 @@ function Tags({setTags}) {
       };
   return (
     <div>
-          {/* <div className="bg-black bg-opacity-70 w-full h-full fixed z-50 inset-0 flex items-center justify-center edit-overlay"> */}
-            {/* <div className="relative max-h-[746px] flex-col h-[94%] rounded-lg w-[640px] overflow-y-auto bg-white z-10 text-black min-w-[640px] my-6 mx-auto font-inter">
-              <div className="p-6 max-w-full"> */}
-                {/* CONTENT START */}
-                
-                  <div className="relative flex-auto">
-                    <input
-                    //   className="w-[90%] ml-[0.5rem] mt-[7px] mb-[7px] text-[#6b7280] outline-none rounded-[0.3125rem] border-1 border-[#ddd] h-10 text-[0.875rem] pl-[13px]"
-                    className="appearance-none px-3 py-2 mt-[7px] mb-[7px] placeholder-[#6B7280] text-[#030303]  placeholder-opacity-90 relative w-full bg-white rounded text-sm border-[1.5px]  focus:outline-none focus:border-[#2dc5a1] focus:border-2 transition duration-200  ease-in bg-transparent"
 
-                      type="text"
-                      value={inputValue}
-                      onChange={handleInputValueChange}
-                      placeholder="Example: Artificial Intelligence , Machine Learning ... "
-                    />
-                    <div
-                      className={`${
-                        autocomplete.disabled ? 'hidden' : ''
-                      } ml-[0.5rem] w-[90%] absolute z-10 border rounded-md  py-1 bg-white
-                       max-h-60 overflow-y-scroll`}
-                    >
-                      {autocomplete.data.map((item, index) => (
-                        <div
-                          key={index}
-                          className="px-3  h-[2rem] flex items-center cursor-pointer 
-                          font-medium text-sm hover:bg-gray-100"
-                          onClick={() => updatePreferredSkills(item)}
-                        >
-                          {item}
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                  <div className="ml-1">
-                    <div className="w-full ml-[-10px]">
-                      {preferredSkills.map((role, index) => (
-                        <span
-                          key={index}
-                          className="preferred_roles"
-                          style={{
-                            background: role.selected ? '#61a0ff' : '',
-                            color: role.selected ? '#fff' : '',
-                          }}
-                          onClick={() => updatePreferredSkills(role.name)}
-                        >
-                          {role.name}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-
-            //   {/* CONTENT END */}
-            // </div>
-        //   </div>
+    {/* CONTENT START */}
     
-    // </div>
+      <div className="relative flex-auto">
+        <input
+        className="appearance-none px-3 py-2 mt-[7px] mb-[7px] placeholder-[#6B7280] text-[#030303]  placeholder-opacity-90 relative w-full bg-white rounded text-sm border-[1.5px]  focus:outline-none focus:border-[#2dc5a1] focus:border-2 transition duration-200  ease-in bg-transparent"
+
+          type="text"
+          value={inputValue}
+          onChange={handleInputValueChange}
+          placeholder="Example: Artificial Intelligence , Machine Learning ... "
+        />
+        <div
+          className={`${
+            autocomplete.disabled ? 'hidden' : ''
+          } ml-[0.5rem] w-[90%] absolute z-10 border rounded-md  py-1 bg-white
+            max-h-60 overflow-y-scroll`}
+        >
+          {autocomplete.data.map((item, index) => (
+            <div
+              key={index}
+              className="px-3  h-[2rem] flex items-center cursor-pointer 
+              font-medium text-sm hover:bg-gray-100"
+              onClick={() => updatePreferredSkills(item)}
+            >
+              {item}
+            </div>
+          ))}
+        </div>
+      </div>
+      <div className="ml-1">
+        <div className="w-full ml-[-10px]">
+          {preferredSkills.map((role, index) => (
+            <span
+              key={index}
+              className="preferred_roles"
+              style={{
+                background: role.selected ? '#61a0ff' : '',
+                color: role.selected ? '#fff' : '',
+              }}
+              onClick={() => updatePreferredSkills(role.name)}
+            >
+              {role.name}
+            </span>
+          ))}
+        </div>
+      </div>
+    </div>
+
+       
   );
 }
 

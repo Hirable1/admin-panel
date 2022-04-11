@@ -101,11 +101,8 @@ function PrefferedLocation({ setLocation }) {
 
   return (
     <>
-      {/* <div className="w-full rounded-[9px] border-[#D9D9D9] bg-white border-[1.5px] p-6 space-y-[15px]"> */}
         
           <div >
-            {/* <div classN ame="bg-black bg-opacity-70 w-full h-full fixed z-50 inset-0 flex items-center justify-center edit-overlay"> */}
-              {/* <div className="relative max-h-[746px] flex-col h-[94%] rounded-lg w-[640px] overflow-y-auto bg-white z-10 text-black min-w-[640px] my-6 mx-auto font-inter"> */}
                 <div className="p-0 max-w-full">
                   {/* CONTENT START */}
                     
@@ -114,13 +111,10 @@ function PrefferedLocation({ setLocation }) {
                       <h5 className="text-[12px] font-semibold text-[#201e27]">
                         Location
                       </h5>
-                      {/* <p className="text-[#788699] text-[12px]  mt-1 font-inter">
-                        Choose up to 7
-                      </p> */}
+                      
                     </div>
                     <div className="relative flex-auto">
                       <input
-                        // className="w-[90%] ml-[0.5rem] mt-[7px] mb-[7px] text-[#6b7280] outline-none rounded-[0.3125rem] border-1 border-[#ddd] h-10 text-[0.875rem] pl-[13px] "
                         className="appearance-none px-3 py-2 mt-[7px] mb-[7px] placeholder-[#6B7280] text-[#030303]  placeholder-opacity-90 relative w-full bg-white rounded text-sm border-[1.5px]  focus:outline-none focus:border-[#2dc5a1] focus:border-2 transition duration-200  ease-in bg-transparent"
                    
                         type="text"
@@ -169,10 +163,7 @@ function PrefferedLocation({ setLocation }) {
                 </div>
                 {/* CONTENT END */}
               </div>
-            {/* </div> */}
-          {/* </div> */}
-     
-      {/* </div> */}
+          
     </>
   );
 }
