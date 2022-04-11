@@ -16,6 +16,22 @@ function Profile() {
     const handleEditorChange = (htmlContent) => {
         setAboutCompany(htmlContent);
       };
+    
+    const onSaveClick = () =>{
+        const newData = {
+            facebook : facebook ,
+            website : website,
+            instagram : instagram,
+            openings : openings,
+            assignments : assignments,
+            location : location,
+            tags : tags,
+            teamSize : teamSize,
+            aboutCompany : aboutCompany,
+        }
+        console.log(newData)
+    }
+
     return (
         <div className="flex flex-col space-y-6 flex-1 py-10">
             <div className="space-y-4 px-10">
@@ -95,7 +111,7 @@ function Profile() {
                     placeholder="Example: Singapore, Mumbai, New York..."
                     className="appearance-none px-3 py-2 placeholder-[#6B7280] text-[#030303]  placeholder-opacity-90 relative w-full bg-white rounded text-sm border-[1.5px]  focus:outline-none focus:border-[#2dc5a1] focus:border-2 transition duration-200  ease-in mt-1 bg-transparent"
                 /> */}
-                <PrefferedLocation/>
+                <PrefferedLocation setLocation = {setLocation} />
             </div>
 
             <div className="px-10 w-full space-y-2">
@@ -107,7 +123,7 @@ function Profile() {
                     placeholder="Example: Artifical Intelligence, Machine Learning, Saas..."
                     className="appearance-none px-3 py-2 placeholder-[#6B7280] text-[#030303]  placeholder-opacity-90 relative w-full bg-white rounded text-sm border-[1.5px]  focus:outline-none focus:border-[#2dc5a1] focus:border-2 transition duration-200  ease-in mt-1 bg-transparent"
                 /> */}
-                <Tags/>
+                <Tags setTags = {setTags} />
             </div>
 
             <div className="px-10 w-full space-y-2">
@@ -121,7 +137,7 @@ function Profile() {
                     placeholder="Example: Artifical Intelligence, Machine Learning, Saas..."
                     className="appearance-none px-3 py-2 placeholder-[#6B7280] text-[#030303]  placeholder-opacity-90 relative w-full bg-white rounded text-sm border-[1.5px]  focus:outline-none focus:border-[#2dc5a1] focus:border-2 transition duration-200  ease-in mt-1 bg-transparent"
                 /> */}
-                <TeamSize/>
+                <TeamSize setTeamSize ={setTeamSize}/>
             </div>
 
             <div className="px-10 w-full space-y-2">
@@ -143,7 +159,7 @@ function Profile() {
             </div>
 
             <div className="flex justify-end mr-10 mt-[1.5rem]">
-                <button className="ml-[0.9375rem]  outline-none  min-w-[9.0625rem] py-[0.625rem] px-[0.75rem] rounded-[0.3125rem]  font-semibold text-[0.875rem] h-[2.5rem] cursor-pointer text-white bg-[#1a73e8] mb-[20px]  border-none mt-[10px] flex items-center justify-center">
+                <button className="ml-[0.9375rem]  outline-none  min-w-[9.0625rem] py-[0.625rem] px-[0.75rem] rounded-[0.3125rem]  font-semibold text-[0.875rem] h-[2.5rem] cursor-pointer text-white bg-[#1a73e8] mb-[20px]  border-none mt-[10px] flex items-center justify-center" onClick={onSaveClick}>
                     Save
                 </button>
             </div>

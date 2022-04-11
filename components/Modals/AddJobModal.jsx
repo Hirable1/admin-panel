@@ -10,11 +10,19 @@ function AddJobModal({
   isEdit,
   index
 }) {
-    
+    // console.log("Render");
     const [jobTitle , setJobTitle] = useState('')
-    const [jobType, setjobType] = useState([ 
-      { name: 'Fulltime', selected: false },
-      { name: 'Intership', selected: false }]);
+    const [jobType, setjobType] = useState(
+      [ 
+        { name: 'Fulltime', selected: false},
+        { name: 'Internship', selected: false}
+      ]
+    );
+
+    const [ jobname ,setJobName ]= useState('');
+
+    // console.log(jobTitle);
+    // console.log(jobType)
 
     const [autocomplete, setAutocomplete] = useState({
       disabled: true,
@@ -57,14 +65,15 @@ function AddJobModal({
         const newData = jobType.map((role) => {
             if (role.name === roleName)
                 role.selected = !role.selected;
+            if(role.selected === true) setJobName(role.name)
       
             return role;
           });
           setInputValue('');
           setAutocomplete({
-          disabled: true,
-          data: [],
-        });
+            disabled: true,
+            data: [],
+          });
 
           setjobType(newData);
 
@@ -72,13 +81,21 @@ function AddJobModal({
       };
 
       const handleSaveJobClick = () => {
-        const newJob = {title : jobTitle , jobType : jobType ,  description : description , responsibilities : responsibilities};
+        console.log(jobTitle)
+        console.log(jobname);
+        var newData = jobType ;
+        
+        const newJob = {title : jobTitle , jobType : jobname ,  description : description , responsibilities : responsibilities};
         setShowAddJobModal(0);
+
+        console.log(newJob)
 
         if(isEdit)
         {
-          jobs[index] = newJob
-          
+          if(newJob.title !== '')jobs[index].title = newJob.title;
+          if(newJob.jobType !== '')jobs[index].jobType = newJob.jobType;
+          if(newJob.description !== '')jobs[index].description = newJob.description;
+          if(newJob.responsibilities !== '')jobs[index].responsibilities = newJob.responsibilities;
         }
         else{          
           var type ;
@@ -134,7 +151,7 @@ function AddJobModal({
                 <div className="w-full mt-[15px]">
                     <p className="text-[15px] font-semibold text-[#201e27]">
                         Job Title
-                    </p>
+                    </p>  
                     <input
                         type="text"
                         defaultValue = {curItem.title}
@@ -149,7 +166,8 @@ function AddJobModal({
                     </p>
                     <input
                         type="text"
-                        value={inputValue}
+                        defaultValue={curItem.jobType}
+                        // value={inputValue}
                         onChange={handleInputValueChange}
                         placeholder="Fulltime , Internship"
                         className="appearance-none px-3 py-2 placeholder-[#6B7280] text-[#030303]  placeholder-opacity-90 relative w-full bg-white rounded text-sm border-[1.5px]  focus:outline-none focus:border-[#2dc5a1] focus:border-2 transition duration-200  ease-in mt-1 bg-transparent"
@@ -161,7 +179,9 @@ function AddJobModal({
                         } ml-[0.5rem] w-[90%] absolute z-10 border rounded-md  py-1 bg-white
                         max-h-60 overflow-y-scroll`}
                       >
-                        {autocomplete.data.map((item, index) => (
+                        {autocomplete.data.map((item, index) => {
+                         
+                          return (
                           <div
                             key={index}
                             className="px-3  h-[2rem] flex items-center cursor-pointer 
@@ -170,11 +190,12 @@ function AddJobModal({
                           >
                             {item}
                           </div>
-                        ))}
+                        )})}
                       </div>
                     
                     <div className="w-full ml-[-10px]">
-                      {jobType.map((role, index) => (
+                      {jobType.map((role, index) => {
+                        return (
                         <span
                           key={index}
                           className="preferred_roles"
@@ -186,7 +207,7 @@ function AddJobModal({
                         >
                           {role.name}
                         </span>
-                      ))}
+                      )})}
                     </div>
                 </div>
 

@@ -3,7 +3,7 @@
 /* eslint-disable react/no-array-index-key */
 import React, { useState, useEffect } from 'react';
 
-function TeamSize() {
+function TeamSize({setTeamSize}) {
     const [preferredSkills, setPreferredSkills] = useState([
         { name: '5-10', selected: false },
         { name: '10-50', selected: false },
@@ -49,6 +49,7 @@ function TeamSize() {
               });
         })
         setPreferredSkills(newData);
+        setTeamSize(newData)
         setInputValue('');
         setAutocomplete({
           disabled: true,

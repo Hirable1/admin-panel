@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 
-function PrefferedLocation({  }) {
+function PrefferedLocation({ setLocation }) {
   const [showlocation, setshowlocation] = useState(false);
   const [preferredLocation, setPreferredLocation] = useState([
     { name: 'Totally Open', selected: false },
@@ -52,6 +52,7 @@ function PrefferedLocation({  }) {
       return role;  
     })
     setPreferredLocation(newData);
+    setLocation(newData)
     setInputValue('');
     setAutocomplete({
       disabled: true,

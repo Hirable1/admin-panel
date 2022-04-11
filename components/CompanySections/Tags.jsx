@@ -3,7 +3,7 @@
 /* eslint-disable react/no-array-index-key */
 import React, { useState, useEffect } from 'react';
 
-function Tags() {
+function Tags({setTags}) {
     const [preferredSkills, setPreferredSkills] = useState([
         { name: 'Machine Learning', selected: false },
         { name: 'Artificial Intelligence', selected: false },
@@ -58,6 +58,7 @@ function Tags() {
               });
         })
         setPreferredSkills(newData);
+        setTags(newData)
         setInputValue('');
         setAutocomplete({
           disabled: true,

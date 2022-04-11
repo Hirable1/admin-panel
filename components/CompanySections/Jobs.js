@@ -2,6 +2,7 @@ import React, { useRef, useState } from 'react'
 import AddJobModal from '../Modals/AddJobModal'
 
 function Jobs() {
+  
   const [showAddJobModal , setShowAddJobModal] = useState(false)
   const [jobs , setJobs] = useState([]) ;
   const [curItem , setCurItem] = useState({});
@@ -16,10 +17,7 @@ function Jobs() {
   }
 
   const handleSaveJobClick = () => {
-    setCurItem({title : '' , jobType:[
-      { name: 'Fulltime', selected: false },
-      { name: 'Intership', selected: false },        
-    ] ,
+    setCurItem({title : '' , jobType:'',
     description:'' , responsibilities : ''})
     setIsEdit(false)
     setShowAddJobModal(true)
