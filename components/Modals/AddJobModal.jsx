@@ -10,7 +10,6 @@ function AddJobModal({
   isEdit,
   index
 }) {
-    // console.log("Render");
     const [jobTitle , setJobTitle] = useState('')
     const [jobType, setjobType] = useState(
       [ 
@@ -21,8 +20,6 @@ function AddJobModal({
 
     const [ jobname ,setJobName ]= useState('');
 
-    // console.log(jobTitle);
-    // console.log(jobType)
 
     const [autocomplete, setAutocomplete] = useState({
       disabled: true,
